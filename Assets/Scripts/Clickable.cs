@@ -5,6 +5,7 @@ using UnityEngine;
 public class Clickable : MonoBehaviour
 {
 
+    private gameManager gm;
     // This variable is marked as `static`, which means it is
     // accessible by any script, anywhere! They can just write
     // Clickable.Clicks to read/write to this value.
@@ -13,13 +14,27 @@ public class Clickable : MonoBehaviour
     // object titled `Tracker Text (TMP)`.
     public static int Clicks = 0;
 
+    void Start()
+    {
+        gm = GameObject.Find("gameManager").GetComponent<gameManager>();
+    }
+
     /// <summary>
     /// This function is called when the mouse button clicks
     /// on this object.
     /// </summary>
     private void OnMouseDown()
     {
-        Clicks += 1;  // add one point
+        // Clicks += 1;  // add one point
+        if (gm != null)
+        {
+            gm.StartGame();
+            Debug.Log("StartGame() called from Clickable!");
+        }
+        else
+        {
+            Debug.LogWarning("GameManager not found!");
+        }
     }
 
 }
