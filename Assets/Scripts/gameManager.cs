@@ -52,7 +52,7 @@ public class gameManager : MonoBehaviour
 
     public void CreateLogo()
     {
-        int index = Random.Range(0, 3);
+        int index = Random.Range(0, 4);
         if (logoList.Length >= index && logoList[index] != null)
         {
             GameObject logoObj = logoList[index];
