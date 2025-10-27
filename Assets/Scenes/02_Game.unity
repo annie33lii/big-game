@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 143853085}
   m_Layer: 0
   m_Name: leftWall
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 550949566}
   m_Layer: 0
   m_Name: top
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 963381474}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1063,6 +1063,7 @@ MonoBehaviour:
   - {fileID: 1324439284002740760, guid: 700d0ee5d29014f8ea47759918e7e820, type: 3}
   RefreshPoint: {fileID: 1848849874}
   startBtn: {fileID: 1194692960}
+  gameState: 0
 --- !u!1 &1401788501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1176,7 @@ GameObject:
   - component: {fileID: 1511629257}
   m_Layer: 0
   m_Name: rightWall
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1712,6 +1713,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1002287212507264598, guid: f3c0047aab4c94e52b3960fd60117969, type: 3}
+      propertyPath: m_TagString
+      value: Logo
+      objectReference: {fileID: 0}
     - target: {fileID: 7371227878549487311, guid: f3c0047aab4c94e52b3960fd60117969, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.81
@@ -1813,6 +1818,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4964595822755265923, guid: e66af43ba33a34209b2e6e952f6662d8, type: 3}
+      propertyPath: m_TagString
+      value: Logo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1833,6 +1842,10 @@ PrefabInstance:
     - target: {fileID: 2778936504838484082, guid: 2d3abfa7f9c3a4a2d8eac254baca6b30, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2778936504838484082, guid: 2d3abfa7f9c3a4a2d8eac254baca6b30, type: 3}
+      propertyPath: m_TagString
+      value: Logo
       objectReference: {fileID: 0}
     - target: {fileID: 8877718726877248091, guid: 2d3abfa7f9c3a4a2d8eac254baca6b30, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1895,6 +1908,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 669789893764585486, guid: 482e3158564d249daac156b6c6d84ae8, type: 3}
+      propertyPath: m_TagString
+      value: Logo
+      objectReference: {fileID: 0}
     - target: {fileID: 7092915153472163191, guid: 482e3158564d249daac156b6c6d84ae8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -1955,6 +1972,10 @@ PrefabInstance:
     - target: {fileID: 1324439284002740760, guid: 700d0ee5d29014f8ea47759918e7e820, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324439284002740760, guid: 700d0ee5d29014f8ea47759918e7e820, type: 3}
+      propertyPath: m_TagString
+      value: Logo
       objectReference: {fileID: 0}
     - target: {fileID: 4018838361902763538, guid: 700d0ee5d29014f8ea47759918e7e820, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2017,6 +2038,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6249622880752240700, guid: 2dab765a6dea041b1a83f548819c644f, type: 3}
+      propertyPath: m_TagString
+      value: Logo
+      objectReference: {fileID: 0}
     - target: {fileID: 8773837696237863104, guid: 2dab765a6dea041b1a83f548819c644f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.06
@@ -2077,6 +2102,10 @@ PrefabInstance:
     - target: {fileID: 4301117417962859950, guid: e6b88d150a81f4cd9849955c741b2326, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301117417962859950, guid: e6b88d150a81f4cd9849955c741b2326, type: 3}
+      propertyPath: m_TagString
+      value: Logo
       objectReference: {fileID: 0}
     - target: {fileID: 8261120345884814256, guid: e6b88d150a81f4cd9849955c741b2326, type: 3}
       propertyPath: m_LocalPosition.x

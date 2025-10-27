@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    Ready = 0,
+    StandBy = 0,
+    InProgress = 0,
+    GameOver = 0,
+    CalculateScore = 4,
+}
+
 public class gameManager : MonoBehaviour
 {
     public GameObject[] logoList;
@@ -9,6 +18,8 @@ public class gameManager : MonoBehaviour
     public GameObject startBtn;
 
     public static gameManager gameManagerInstance;
+
+    public GameState gameState = GameState.Ready;
     void Awake()
     {
         gameManagerInstance = this;
@@ -27,6 +38,7 @@ public class gameManager : MonoBehaviour
     {
         Debug.Log("Game Started");
         CreateLogo();
+        gameState = GameState.StandBy; 
         startBtn.SetActive(false);
     }
 
@@ -41,7 +53,8 @@ public class gameManager : MonoBehaviour
         if (logoList.Length >= index && logoList[index] != null)
         {
             GameObject logoObj = logoList[index];
-            Instantiate(logoObj, RefreshPoint.transform.position, logoObj.transform.rotation);
+            var currentLogo = Instantiate(logoObj, RefreshPoint.transform.position, logoObj.transform.rotation);
+            currentLogo.GetComponent<Logos>().logoState = LogoState.StandBy;
         }
     }
 }
