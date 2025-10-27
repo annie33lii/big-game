@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 52164300539561735}
   m_Layer: 0
   m_Name: Stanford
-  m_TagString: Untagged
+  m_TagString: Logo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,3 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logoType: 6
+  logoState: 0
+  limit_x: 1.82

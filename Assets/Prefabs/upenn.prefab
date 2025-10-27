@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3680821262609081348}
   m_Layer: 0
   m_Name: upenn
-  m_TagString: Untagged
+  m_TagString: Logo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,3 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logoType: 3
+  logoState: 0
+  limit_x: 2.23

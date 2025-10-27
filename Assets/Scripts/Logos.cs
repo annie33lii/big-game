@@ -25,10 +25,12 @@ public enum LogoState
 
 public class Logos : MonoBehaviour
 {
+    private gameManager gameManager;
     public LogoType logoType = LogoType.mit;
     private bool isMoved = false;
     public LogoState logoState = LogoState.Ready;
     public float limit_x = 2.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +51,7 @@ public class Logos : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && isMoved)
             {
                 isMoved = false;
-                this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
+                this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                 logoState = LogoState.Dropping;
                 gameManager.gameManagerInstance.gameState = GameState.InProgress; 
                 gameManager.gameManagerInstance.InvokeCreateLogo(0.5f);
@@ -71,25 +73,41 @@ public class Logos : MonoBehaviour
         if (this.transform.position.x < -limit_x)
         {
             this.transform.position = new Vector3(-limit_x, this.transform.position.y, this.transform.position.z);
-            
+
         }
 
     }
-
 
     //Collision
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collision");
-        if (collision.gameObject.tag == "Floor")
+        if (collision.gameObject.tag.Contains("Floor"))
         {
             gameManager.gameManagerInstance.gameState = GameState.StandBy;
             logoState = LogoState.Collision;
         }
-        if (collision.gameObject.tag == "Logo")
+        if (collision.gameObject.tag.Contains("Logo"))
         {
             gameManager.gameManagerInstance.gameState = GameState.StandBy;
             logoState = LogoState.Collision;
+        }
+
+        if ((int)logoState >= (int)LogoState.Dropping)
+        {
+            if (collision.gameObject.tag.Contains("Logo")) { 
+                if (logoType == collision.gameObject.GetComponent<Logos>().logoType)
+                {
+                    float posxy = this.transform.position.y + collision.transform.position.x;
+                    float collisionxy = collision.transform.position.y + this.transform.position.x;
+                    if (posxy > collisionxy)
+                    {
+                        gameManager.gameManagerInstance.CombineNewLogo(logoType, this.transform.position, collision.transform.position);
+                        Destroy(collision.gameObject);
+                        Destroy(this.gameObject);
+                    }
+                }
+            }
         }
     }
 }
