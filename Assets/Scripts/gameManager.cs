@@ -19,7 +19,7 @@ public class gameManager : MonoBehaviour
 
     public static gameManager gameManagerInstance;
 
-    public Vector3 combineScale = new Vector3(0, 0, 0);
+    //public Vector3 combineScale = new Vector3(0, 0, 0);
 
     public GameState gameState = GameState.Ready;
 
@@ -52,7 +52,7 @@ public class gameManager : MonoBehaviour
 
     public void CreateLogo()
     {
-        int index = Random.Range(0, 4);
+        int index = Random.Range(0, 3);
         if (logoList.Length >= index && logoList[index] != null)
         {
             GameObject logoObj = logoList[index];
@@ -70,6 +70,6 @@ public class gameManager : MonoBehaviour
         var combineLogo = Instantiate(combineLogoObj, centerPos, combineLogoObj.transform.rotation);
         combineLogo.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
         combineLogo.GetComponent<Logos>().logoState = LogoState.Collision;
-        combineLogo.transform.localScale = combineScale;
+        //combineLogo.transform.localScale = combineScale;
     }
 }

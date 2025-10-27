@@ -29,11 +29,11 @@ public class Logos : MonoBehaviour
     private bool isMoved = false;
     public LogoState logoState = LogoState.Ready;
     public float limit_x = 2.5f;
-    public Vector3 originalScale = Vector3.zero;
-    public float scaleSpeed = 0.1f;
+    //public Vector3 originalScale = Vector3.zero;
+    //public float scaleSpeed = 0.1f;
     private void Awake()
     {
-        originalScale = new Vector3(0.2f, 0.2f, 0.2f);
+        //originalScale = new Vector3(0.2f, 0.2f, 0.2f);
     }
 
     // Start is called before the first frame update
@@ -81,15 +81,15 @@ public class Logos : MonoBehaviour
             
         }
 
-        //get back to the original size after combining
-        if (this.transform.localScale.x < originalScale.x)
-        {
-            this.transform.localScale += new Vector3(1, 1, 1) * scaleSpeed;
-            if (this.transform.localScale.x > originalScale.x)
-            {
-                this.transform.localScale = originalScale;
-            }
-        }
+        ////get back to the original size after combining
+        //if (this.transform.localScale.x < originalScale.x)
+        //{
+        //    this.transform.localScale += new Vector3(1, 1, 1) * scaleSpeed;
+        //    if (this.transform.localScale.x > originalScale.x)
+        //    {
+        //        this.transform.localScale = originalScale;
+        //    }
+        //}
     }
 
 
