@@ -4,25 +4,44 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour
 {
-    public GameObject[] LogoList;
+    public GameObject[] logoList;
     public GameObject RefreshPoint;
-    // Start is called before the first frame update
+    public GameObject startBtn;
+
+    public static gameManager gameManagerInstance;
+    void Awake()
+    {
+        gameManagerInstance = this;
+    }
+
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
 
     }
-    
+
     public void StartGame()
     {
-        Debug.Log("Game Started!");
-        int index = Random.Range(0, LogoList.Length);
-        GameObject logo = LogoList[index];
-        Instantiate(logo, RefreshPoint.transform.position, Quaternion.identity);
+        Debug.Log("Game Started");
+        CreateLogo();
+        startBtn.SetActive(false);
+    }
+
+    public void InvokeCreateLogo(float invokeTime)
+    {
+        Invoke("CreateLogo", invokeTime);
+    }
+
+    public void CreateLogo()
+    {
+        int index = Random.Range(0, 3);
+        if (logoList.Length >= index && logoList[index] != null)
+        {
+            GameObject logoObj = logoList[index];
+            Instantiate(logoObj, RefreshPoint.transform.position, logoObj.transform.rotation);
+        }
     }
 }
