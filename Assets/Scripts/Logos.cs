@@ -29,6 +29,13 @@ public class Logos : MonoBehaviour
     private bool isMoved = false;
     public LogoState logoState = LogoState.Ready;
     public float limit_x = 2.5f;
+    public Vector3 originalScale = Vector3.zero;
+    public float scaleSpeed = 0.1f;
+    private void Awake()
+    {
+        originalScale = new Vector3(0.2f, 0.2f, 0.2f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +81,15 @@ public class Logos : MonoBehaviour
             
         }
 
+        //get back to the original size after combining
+        if (this.transform.localScale.x < originalScale.x)
+        {
+            this.transform.localScale += new Vector3(1, 1, 1) * scaleSpeed;
+            if (this.transform.localScale.x > originalScale.x)
+            {
+                this.transform.localScale = originalScale;
+            }
+        }
     }
 
 
@@ -81,15 +97,39 @@ public class Logos : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collision");
+
+        //if hit floor
         if (collision.gameObject.tag == "Floor")
         {
             gameManager.gameManagerInstance.gameState = GameState.StandBy;
             logoState = LogoState.Collision;
         }
+
+        // if hit logo
         if (collision.gameObject.tag == "Logo")
         {
             gameManager.gameManagerInstance.gameState = GameState.StandBy;
             logoState = LogoState.Collision;
+        }
+
+        //Dropping and combine
+        if ((int)logoState >= (int)LogoState.Dropping)
+        {
+            if (collision.gameObject.tag.Contains("Logo"))
+            {
+                if (logoType == collision.gameObject.GetComponent<Logos>().logoType)
+                {
+                    // only combine onces
+                    float thisPosxy = this.transform.position.x + this.transform.position.y;
+                    float collisionPosxy = collision.transform.position.x + collision.transform.position.y;
+                    if (thisPosxy > collisionPosxy)
+                    {
+                        gameManager.gameManagerInstance.CombineNewLogo(logoType, this.transform.position, collision.transform.position);
+                        Destroy(this.gameObject);
+                        Destroy(collision.gameObject);
+                    }
+                }
+            }
         }
     }
 }

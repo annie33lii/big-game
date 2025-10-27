@@ -1063,6 +1063,7 @@ MonoBehaviour:
   - {fileID: 1324439284002740760, guid: 700d0ee5d29014f8ea47759918e7e820, type: 3}
   RefreshPoint: {fileID: 1848849874}
   startBtn: {fileID: 1194692960}
+  combineScale: {x: 0.18, y: 0.18, z: 0}
   gameState: 0
 --- !u!1 &1401788501
 GameObject:
