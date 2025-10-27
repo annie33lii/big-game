@@ -173,6 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logoType: 6
   logoState: 0
-  limit_x: 2.5
-  originalScale: {x: 0, y: 0, z: 0}
-  scaleSpeed: 0.05
+  limit_x: 1.82
