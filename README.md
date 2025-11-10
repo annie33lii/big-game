@@ -1,0 +1,1 @@
+Big Game is a Unity-based merging game inspired by the viral 合成大西瓜 format. Instead of fruits, players merge iconic university logos, progressing toward the ultimate goal—Stanford. This playful project experiments with sprite physics, collision systems, and casual mobile game mechanics while celebrating school spirit in a fun, accessible way.
